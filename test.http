@@ -1,0 +1,67 @@
+### Get all students
+GET http://localhost/students
+
+### Get specific student by ID
+GET http://localhost/students/1
+
+### Create new student
+POST http://localhost/students
+Content-Type: application/json
+
+{
+    "Name": "John Doe",
+    "Grade": "A",
+    "Email": "john@example.com"
+}
+
+### Create another student (for testing)
+POST http://localhost/students
+Content-Type: application/json
+
+{
+    "Name": "Jane Smith",
+    "Grade": "B+",
+    "Email": "jane@example.com"
+}
+
+### Test invalid POST (missing required fields)
+POST http://localhost/students
+Content-Type: application/json
+
+{
+    "Name": "Invalid Student"
+}
+
+### Update student
+PUT http://localhost/students/1
+Content-Type: application/json
+
+{
+    "Name": "John Doe Updated",
+    "Grade": "A+",
+    "Email": "john.updated@example.com"
+}
+
+### Test invalid PUT (wrong ID)
+PUT http://localhost/students/999
+Content-Type: application/json
+
+{
+    "Name": "Nobody",
+    "Grade": "F",
+    "Email": "nobody@example.com"
+}
+
+### Test invalid PUT (missing fields)
+PUT http://localhost/students/1
+Content-Type: application/json
+
+{
+    "Name": "Incomplete Data"
+}
+
+### Delete student
+DELETE http://localhost/students/1
+
+### Test invalid delete (non-existent ID)
+DELETE http://localhost/students/999
